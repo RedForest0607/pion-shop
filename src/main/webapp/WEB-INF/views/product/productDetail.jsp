@@ -8,6 +8,9 @@
 <title>상품 상세</title>
 <link href="/css/bootstrap.min.css" rel="stylesheet">
 </head>
+<%
+	ProductResponse product = (ProductResponse) request.getAttribute("product");
+%>
 <body>
 	<div class="container">
 	    <div class="py-5 text-center">
@@ -15,15 +18,15 @@
 	    </div>
 	    <div>
 	        <label for="itemId">상품 ID</label>
-	        <input type="text" id="itemId" name="itemId" class="form-control" value="1" readonly>
+	        <input type="text" id="itemId" name="itemId" class="form-control" value="<%=product.getId()%>" readonly>
 	    </div>
 	    <div>
 	        <label for="itemName">상품명</label>
-	        <input type="text" id="itemName" name="itemName" class="form-control" value="상품 A" readonly>
+	        <input type="text" id="itemName" name="itemName" class="form-control" value="<%=product.getName()%>" readonly>
 	    </div>
 	    <div>
 	        <label for="price">가격</label>
-	        <input type="text" id="price" name="price" class="form-control" value="2000">
+	        <input type="text" id="price" name="price" class="form-control" value="<%=product.getPrice()%>">
 	    </div>
 	    <hr class="my-4">
 	    <div class="row">

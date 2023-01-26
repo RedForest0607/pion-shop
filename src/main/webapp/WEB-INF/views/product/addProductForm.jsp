@@ -1,39 +1,39 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+         pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>상품 등록</title>
-<link href="/css/bootstrap.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>상품 등록</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <script src="/js/jquery-3.6.3.min.js"></script>
-<script>
-$( document ).ready( function() {
-	$('#addProductBtn').click(function() {
-		let name = $('#name').val();
-		let price = $('#price').val();
-	
-		$.ajax({
-			url: "/product",
-			type: "post",
-			accept: "application/json",
-			contentType: "application/json; charset=utf-8",
-			data: JSON.stringify({'name': name, 'price': price}),
-			dataType: "json",	
-			success: function(data) {
-				
-			}
-		});
-	});
-});
-</script>
+<%--<script>--%>
+<%--    $( document ).ready( function() {--%>
+<%--        $('#addProductBtn').click(function() {--%>
+<%--            let name = $('#name').val();--%>
+<%--            let price = $('#price').val();--%>
+<%--            $.ajax({--%>
+<%--                url: "/main",--%>
+<%--                type: "post",--%>
+<%--                accept: "application/json",--%>
+<%--                contentType: "application/json; charset=utf-8",--%>
+<%--                data: JSON.stringify({'name': name, 'price': price}),--%>
+<%--                dataType: "json",--%>
+<%--                success: function(data) {--%>
+
+<%--                }--%>
+<%--            });--%>
+<%--        });--%>
+<%--    });--%>
+<%--</script>--%>
 <body>
-	<div class="container">
-	    <div class="py-5 text-center">
-	        <h2>상품 등록 폼</h2>
-	    </div>
-	    <h4 class="mb-3">상품 입력</h4>
+<div class="container">
+    <form action="/main/add" method="post">
+        <div class="py-5 text-center">
+            <h2>상품 등록 폼</h2>
+        </div>
+        <h4 class="mb-3">상품 입력</h4>
         <div>
             <label for="name">상품명</label>
             <input type="text" id="name" name="name" class="formcontrol" placeholder="상품명을 입력하세요">
@@ -55,6 +55,7 @@ $( document ).ready( function() {
                 </button>
             </div>
         </div>
-	</div>
+    </form>
+</div>
 </body>
 </html>

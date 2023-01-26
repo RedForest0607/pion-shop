@@ -22,7 +22,7 @@ public class ProductController {
 	public String productList() {
 		return "/product/productList";
 	}
-	
+
 	@PostMapping
 	@ResponseStatus(code = HttpStatus.CREATED)
 	public String addProduct(@RequestBody ProductRequest request) {
@@ -30,7 +30,6 @@ public class ProductController {
 		System.out.println(request.getName() + "   " + request.getPrice());
 		productService.save(request);
 		return "product/productList";
-		
 	}
 	
 	@GetMapping("/all")

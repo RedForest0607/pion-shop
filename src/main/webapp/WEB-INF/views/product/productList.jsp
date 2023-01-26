@@ -1,12 +1,43 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+         pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>상품 목록</title>
-<link href="/css/bootstrap.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>상품 목록</title>
+
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
 </head>
+<script src="/js/jquery-3.6.3.min.js"></script>
+<script>
+    $( document ).ready( function() {
+        $.ajax({
+            url: "/main/find/all",
+            type: "get",
+            dataType: "json",
+            success: function(data){
+                if(data){
+                    for(let i=0; i<data.length; i+=1){
+                        let product = data[i];
+                        $('#productList > tbody:last').append(`
+                             <tr>
+					            <td>
+                                    \${ product['id'] }
+					            </td>
+					            <td>
+					                <a href="/main/detail/\${ product['id'] }">\${ product['name'] } </a>
+					            </td>
+					            <td>
+					                \${ product['price'] }
+					            </td>
+					        </tr>
+                    `);
+                    }
+                }
+            }
+        })
+    });
+</script>
 <body>
 <div class="container" style="max-width: 600px">
     <div class="py-5 text-center">
@@ -15,15 +46,15 @@
     <div class="row">
         <div class="col">
             <button class="btn btn-primary float-end"
-            	onclick="location.href='/product/addProductForm'" 
-	             type="button">
+                    onclick="location.href='/product/addProductForm'"
+                    type="button">
                 상품 등록
             </button>
         </div>
     </div>
     <hr class="my-4">
     <div>
-        <table class="table">
+        <table class="table" id="productList">
             <thead>
             <tr>
                 <th>ID</th>
@@ -32,32 +63,9 @@
             </tr>
             </thead>
             <tbody>
-            	<tr>
-		            <td>
-		                1
-		            </td>
-		            <td>
-		                <a href="/product/detail/1">상품 A</a>
-		            </td>
-		            <td>
-		                2,000
-		            </td>
-		        </tr>
-		        <tr>
-		            <td>
-		                2
-		            </td>
-		            <td>
-		                <a href="/product/detail/2">상품 B</a>
-		            </td>
-		            <td>
-		                4,000
-		            </td>
-		        </tr>
             </tbody>
         </table>
     </div>
-</div> 
+</div>
 </body>
 </html>
-   
