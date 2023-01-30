@@ -8,25 +8,7 @@
     <link href="/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <script src="/js/jquery-3.6.3.min.js"></script>
-<%--<script>--%>
-<%--    $( document ).ready( function() {--%>
-<%--        $('#addProductBtn').click(function() {--%>
-<%--            let name = $('#name').val();--%>
-<%--            let price = $('#price').val();--%>
-<%--            $.ajax({--%>
-<%--                url: "/main",--%>
-<%--                type: "post",--%>
-<%--                accept: "application/json",--%>
-<%--                contentType: "application/json; charset=utf-8",--%>
-<%--                data: JSON.stringify({'name': name, 'price': price}),--%>
-<%--                dataType: "json",--%>
-<%--                success: function(data) {--%>
 
-<%--                }--%>
-<%--            });--%>
-<%--        });--%>
-<%--    });--%>
-<%--</script>--%>
 <body>
 <div class="container">
     <form action="/main/add" method="post">
